@@ -1,3 +1,11 @@
+<?php
+
+include ('./vendor/autoload.php');
+
+use Helpers\Auth;
+
+$auth = Auth::check();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +73,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="contact.php">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a class="text-white mb-3 mr-3" href="contact.php " style="font-size: 30px;"><i class="fa fa-sign-out logout" aria-hidden="true"></i></a>
+                <a class="text-white mb-3 mr-3" href="./_actions/logout.php " style="font-size: 30px;"><i class="fa fa-sign-out logout" aria-hidden="true"></i></a>
                 <a class="text-white mb-3 " href="contact.php " style="font-size: 30px;"><i class="fa fa-cart-arrow-down logout" aria-hidden="true"></i></i></a>
 
               </li>
@@ -89,10 +97,21 @@ https://templatemo.com/tm-546-sixteen-clothing
         </div>
       </div>
     </div>
-
+  
 
     <div class="find-us">
       <div class="container">
+      <?php if ( isset($_GET['error']) ) : ?>
+                    <div class="alert alert-danger">
+                    Message Cannot Sent!
+                    </div>
+                <?php endif ?>
+
+              <?php if ( isset($_GET['msg']) ) : ?>
+                    <div class="alert alert-success">
+                    Message Sent Successfully!
+                    </div>
+                <?php endif ?>
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
@@ -133,20 +152,23 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="col-md-12">
             <div class="section-heading">
               <h2>Send us a Message</h2>
+        
             </div>
+
           </div>
           <div class="col-md-8">
             <div class="contact-form">
-              <form id="contact" action="" method="post">
+              <form id="contact" action="./_actions/msg_sent.php" method="post">
+                <input type="hidden" name="author_id" value="<?= $auth->id ?>">
                 <div class="row">
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                      <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                      <input name="name" type="text" class="form-control" id="name" value="<?= $auth->name ?>" placeholder="Full Name" readonly>
                     </fieldset>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                      <input name="email" type="text" class="form-control" id="email" placeholder="E-Mail Address" required="">
+                      <input name="email" type="text" class="form-control" id="email" value="<?= $auth->email ?>" placeholder="E-Mail Address" readonly>
                     </fieldset>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
@@ -156,7 +178,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
-                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                      <textarea name="content" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
                     </fieldset>
                   </div>
                   <div class="col-lg-12">

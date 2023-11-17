@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Sixteen Clothing - Contact Page</title>
+    <title>Sixteen Clothing - Admin Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.php"><h2>Sixteen <em>Clothing</em></h2></a>
+          <a class="navbar-brand" href="index.php"><h2>Admin - <em><?= $auth->name ?></em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -57,17 +57,16 @@ https://templatemo.com/tm-546-sixteen-clothing
                 </a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link active" href="products.php">Category</a>
+                <a class="nav-link active" href="categories.php">Category</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="about.php">Customers</a>
+                <a class="nav-link active" href="user_list.php">Customers</a>
               </li>
               <li class="nav-item  ">
-                <a class="nav-link active" href="contact.php">Message</a>
+                <a class="nav-link active" href="message.php">Message</a>
               </li>
               <li class="nav-item">
                 <a class="text-white mb-3 mr-3" href="logout.php " style="font-size: 30px;"><i class="fa fa-sign-out logout" aria-hidden="true"></i></a>
-
               </li>
             </ul>
           </div>

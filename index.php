@@ -1,6 +1,6 @@
 
 <?php
-include("vendor/autoload.php");
+include("./vendor/autoload.php");
 
 use Libs\Database\MySQL;
 use Libs\Database\UsersTable;
@@ -21,7 +21,7 @@ $auth = Auth::check();
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Sixteen Clothing HTML Template</title>
+    <title>Sixteen Clothing Home page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -79,7 +79,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="contact.php">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a class="text-white mb-3 mr-3" href="_actions/logout.php " style="font-size: 30px;"><i class="fa fa-sign-out logout" aria-hidden="true"></i></a>
+                <a class="text-white mb-3 mr-3" href="./_actions/logout.php " style="font-size: 30px;"><i class="fa fa-sign-out logout" aria-hidden="true"></i></a>
                 <a class="text-white mb-3 " href="contact.php " style="font-size: 30px;"><i class="fa fa-cart-arrow-down logout" aria-hidden="true"></i></i></a>
 
               </li>

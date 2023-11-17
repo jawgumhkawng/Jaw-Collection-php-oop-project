@@ -1,18 +1,7 @@
 <?php 
 include('../vendor/autoload.php'); 
 
-use Libs\Database\MySQL;
-use Libs\Database\UsersTable;
 use Helpers\Auth;
-
-
-$table = new UsersTable(new MySQL());
-
-$prdId = $_GET['id'];
-
-$products = $table->getPrdId($prdId);
-
-$categories = $table->getCat();
 
 $auth = Auth::check();
 
@@ -25,71 +14,33 @@ $auth = Auth::check();
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Edit Products</h2>
+              <h2>Add New Products</h2>
             </div>
           </div>
           <div class="col-md-8">
                   <?php if(isset($_GET['error'])) : ?>
                         <div class="alert alert-warning">
-                            <h4>Cannot add product.Please try again!</h4>
+                            <h4>Cannot add category.Please try again!</h4>
                         </div>
                     <?php endif ?>
-                    <?php if(isset($_GET['Prderror'])) : ?>
-                        <div class="alert alert-warning">
-                            <h4>image must be png!!</h4>
-                        </div>
-                    <?php endif ?>
+                   
 
             <div class="contact-form">
-              <form id="contact" action="../_actions/prd_edit.php" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?= $products->id ?>">
+              <form id="contact" action="../_actions/cat_add.php" method="post" enctype="multipart/form-data">
                 <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                   <img src="../_actions/photos/<?= $products->image ?>" width="100px" height="100px" class="rounded-1 shadow-lg mb-3" style="border: 1px solid gray; bottom:10px">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                      <input name="image" type="file" class="form-control" value="<?= $products->image ?>"  placeholder="Product Image" >
+                      <input name="name" type="text" class="form-control"  placeholder="Name" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                      <input name="name" type="text" class="form-control" value="<?= $products->name ?>" placeholder="Name"  required="">
+                      <input name="description" type="text" class="form-control"  placeholder="Description" required="">
                     </fieldset>
                   </div>
-                  <div class="col-lg-12 col-md-12 col-sm-12">
-                    <fieldset>
-                      <input name="description" type="text" class="form-control" value="<?= $products->description ?>" placeholder="Description"  required="">
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
-                    <fieldset>
-                      <label for="">category</label>
-                    <select class="form-control" name="category_id" >
-                    <!-- <option >Select Category</option> -->
-                      <?php foreach ($categories as $category) : ?>
-                        <?php if($products->category_id == $category->cat_id) : ?>
-                          <option value="<?= $category->cat_id ?>" selected><?= $category->name ?></option>
-                        <?php else : ?>
-                          <option value="<?= $category->cat_id ?>"><?= $category->name ?></option>
-                         <?php endif ?>
-                        <?php endforeach ?>
-                      </select>                    
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-12 col-md-12 col-sm-12">
-                    <fieldset>
-                      <input name="quantity" type="number" class="form-control" value="<?= $products->quantity ?>"  placeholder="Quantity" required="">
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-12 col-md-12 col-sm-12">
-                    <fieldset>
-                      <input name="price" type="number" class="form-control" value="<?= $products->price ?>" placeholder="Price" required="">
-                    </fieldset>
-                  </div>
-               
                   <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" class="filled-button float-right">Submit</button>
-                      <a href="index.php" id="form-submit" class="filled-button bg-info">Back</a>
+                      <button type="submit" id="form-submit" class="filled-button">Submit</button>
                     </fieldset>
                   </div>
                 </div>

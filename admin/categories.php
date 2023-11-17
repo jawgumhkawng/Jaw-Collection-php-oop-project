@@ -1,3 +1,15 @@
+<?php
+include("../vendor/autoload.php");
+
+use Libs\Database\MySQL;
+use Libs\Database\UsersTable;
+use Helpers\Auth;
+
+$table = new UsersTable(new MySQL());
+$all = $table->getCat();
+
+$auth = Auth::check();
+?>
 <?php include ('header.php'); ?>
  
     <div class="send-message">
@@ -5,46 +17,56 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Send us a Message</h2>
+              <h2>Category  List</h2>
+
+              <?php if ( isset($_GET['catadd']) ) : ?>
+                    <div class="alert alert-info">
+                    Category Add Success!
+                    </div>
+                <?php endif ?>
+                <?php if ( isset($_GET['catDelete']) ) : ?>
+                    <div class="alert alert-danger">
+                    Category Deleted!
+                    </div>
+                <?php endif ?>
               
             </div>
           </div>
-          <div class="col-md-8">
-          <a href="products_add.php" class="btn btn-primary mb-3">+ Add Product</a>
+          <div class="col-md-12">
+          <a href="categories_add.php" class="btn btn-primary mb-3">+ Add New Category</a>
             <div class="contact-form">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col">DESC.</th>
+                  <th scope="col">CREATED_AT</th>
+                  <th scope="col">ACTION</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                  <?php $i = 1; ?>
+                <?php  foreach($all as $cat) : ?>
+                  <td><?= $i ?></td>
+                  <td><?= $cat->name ?></td>
+                  <td><?= $cat->description ?></td>                
+                  <td><?= $cat->created_at ?></td>
+                  <td class="btn-group">
+                  <a href="#" type="button" class="btn btn-warning"> <i class="fa fa-cog" aria-hidden="true"></i></a>
+                  <a href="../_actions/cat_delete.php?id=<?= $cat->cat_id ?>" type="button" class="btn btn-danger" onclick="return confirm('Are you sure! You want to delete this category( <?= $cat->name ?> )!')">
+                  <i class="fa fa-trash" aria-hidden="true"></i></a>
+                   </td>
+                  
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+                <?php $i++; ?>
+               <?php endforeach ?>
               </tbody>
               </table>
             </div>
           </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <ul class="accordion">
               <li>
                   <a>Accordion Title One</a>
@@ -71,7 +93,7 @@
                   </div>
               </li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

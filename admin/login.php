@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +10,10 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Sixteen Clothing - loginPage</title>
+    <title>Sixteen Clothing - Contact Page</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!--
 
 TemplateMo 546 Sixteen Clothing
@@ -22,9 +23,9 @@ https://templatemo.com/tm-546-sixteen-clothing
 -->
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-sixteen.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
 
   </head>
 
@@ -62,18 +63,14 @@ https://templatemo.com/tm-546-sixteen-clothing
                     Incorrect Email or Password
                     </div>
                 <?php endif ?>
-                <?php if ( isset($_GET['registered']) ) : ?>
-                    <div class="alert alert-info">
-                    Refistertion Success! Please Login
-                    </div>
-                <?php endif ?>
-                <?php if ( isset($_GET['suspended']) ) : ?>
+                <?php if ( isset($_GET['error']) ) : ?>
                     <div class="alert alert-danger">
-                    Your account has SUSPENDED!
+                    Only Admin Can Login!
                     </div>
                 <?php endif ?>
+                
             <div class="contact-form">
-              <form id="contact" action="_actions/login.php" method="post">
+              <form id="contact" action="../_actions/adLogin.php" method="post">
                 <div class="row">
                  
                   <div class="col-lg-12 col-md-12 col-sm-12">
@@ -100,7 +97,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="col-md-6">
             <ul class="accordion">
             <div class="right-image ">
-              <img src="assets/images/feature-image.jpg" class="shadow" style="border-radius:10px; border:1px solid gray" width="100%" alt="">
+              <img src="../assets/images/feature-image.jpg" class="shadow" style="border-radius:10px; border:1px solid gray" width="100%" alt="">
             </div>
               <li>
                   <a>Enter To Login</a>
@@ -126,27 +123,27 @@ https://templatemo.com/tm-546-sixteen-clothing
           <div class="col-md-12">
             <div class="owl-clients owl-carousel">
               <div class="client-item">
-                <img src="assets/images/client-01.png" alt="1">
+                <img src="../assets/images/client-01.png" alt="1">
               </div>
               
               <div class="client-item">
-                <img src="assets/images/client-01.png" alt="2">
+                <img src="../assets/images/client-01.png" alt="2">
               </div>
               
               <div class="client-item">
-                <img src="assets/images/client-01.png" alt="3">
+                <img src="../assets/images/client-01.png" alt="3">
               </div>
               
               <div class="client-item">
-                <img src="assets/images/client-01.png" alt="4">
+                <img src="../assets/images/client-01.png" alt="4">
               </div>
               
               <div class="client-item">
-                <img src="assets/images/client-01.png" alt="5">
+                <img src="../assets/images/client-01.png" alt="5">
               </div>
               
               <div class="client-item">
-                <img src="assets/images/client-01.png" alt="6">
+                <img src="../assets/images/client-01.png" alt="6">
               </div>
             </div>
           </div>
@@ -171,16 +168,16 @@ https://templatemo.com/tm-546-sixteen-clothing
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="assets/jquery/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/jquery/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
     <!-- Additional Scripts -->
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/slick.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/accordions.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/owl.js"></script>
+    <script src="../assets/js/slick.js"></script>
+    <script src="../assets/js/isotope.js"></script>
+    <script src="../assets/js/accordions.js"></script>
 
 
     <script language = "text/Javascript"> 

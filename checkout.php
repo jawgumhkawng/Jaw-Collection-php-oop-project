@@ -1,16 +1,10 @@
 
-<?php
-include("./vendor/autoload.php");
-
-use Libs\Database\MySQL;
-use Libs\Database\UsersTable;
+<?php 
+include('./vendor/autoload.php'); 
 use Helpers\Auth;
 
-$table = new UsersTable(new MySQL());
-$id = $_GET['id'];
-$prd = $table->getPrdId($id);
-
 $auth = Auth::check();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,10 +17,10 @@ $auth = Auth::check();
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Sixteen Clothing Product Dtail</title>
+    <title>Sixteen Clothing - About Page</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!--
 
 TemplateMo 546 Sixteen Clothing
@@ -69,10 +63,10 @@ https://templatemo.com/tm-546-sixteen-clothing
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="products.php">Our Products</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="about.php">About Us</a>
               </li>
               <li class="nav-item">
@@ -90,79 +84,46 @@ https://templatemo.com/tm-546-sixteen-clothing
     </header>
 
     <!-- Page Content -->
-    <div class="page-heading products-heading header-text">
+    <div class="page-heading about-heading header-text">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-              <h4>new arrivals</h4>
-              <h2>sixteen products</h2><br>
-              <h6 class="text-secondary">product detail</h6>
+              <h4>Checkout</h4>
+              <h2>our company</h2><br>
+              <h6 class="text-secondary">Order Page</h6>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="best-features about-features">
+      <div class="container ">
+        <div class="row ">
+          <div class="col-md-12 ">
+            <div class="section-heading">
+              <h2 class="text-center">Our Background</h2>
+              <?php if ( isset($_GET['ordered']) ) : ?>
+                    <div class="alert alert-success">
+                    Order Submit Successfully!
+                    </div>
+                <?php endif ?>
+            </div>
+          </div>
+          <a href="index.php" class="btn btn-primary float-right">BACK</a>
         </div>
       </div>
     </div>
 
     
-    <div class="products">
-      <div class="container">
-        <div class="row">
-          <!-- <div class="col-md-12">
-            <div class="filters">
-              <ul>
-                  <li class="active" data-filter="*">All Products</li>
-                  <li data-filter=".des">Featured</li>
-                  <li data-filter=".dev">Flash Deals</li>
-                  <li data-filter=".gra">Last Minute</li>
-              </ul>
-            </div>
-          </div> -->
 
-          <div class="best-features about-features mt-0">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="section-heading">
-                    <h2>Product Detail</h2>
-                  </div>
-                    <?php if ( isset($_GET['error']) ) : ?>
-                      <div class="alert alert-success">
-                      Cannot Submit Order!
-                      </div>
-                    <?php endif ?>
-                </div>
-                <div class="col-md-6 ">
-                  <div class="right-image shadow-lg" style="border: 2px solid gray; border-radius: 10px;" >
-                    <img src="./_actions/photos/<?= $prd->image ?>" alt="" width="300px" height="330px" style="border-radius: 8px;">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="left-content">
-                    <h4><?= $prd->name ?></h4>
-                    <p class="text-danger">$<?= $prd->price ?></p>
-                    <p class="mb-5"><?= $prd->description ?></p>
-                    <!-- <ul class=" mt-4 shadow-lg">
-                      <li></li>
-                      <li></li>
-                      
-                    </ul> -->
-                    
-                  
-                      <a href="index.php" class="btn btn-outline-warning shadow ">Back</a>
-                    <a href="./_actions/order.php?id=<?= $prd->id ?>&total_price=<?= $prd->price ?>" type="submit" class="btn btn-outline-primary float-right shadow">CheckOut</a>
 
-                    
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      
-           
-        </div>
-      </div>
-    </div>
+
+
+
+
 
     
     <footer>
@@ -181,8 +142,8 @@ https://templatemo.com/tm-546-sixteen-clothing
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="assets/jquery/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
     <!-- Additional Scripts -->

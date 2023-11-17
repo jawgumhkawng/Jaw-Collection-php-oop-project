@@ -13,4 +13,4 @@ $table = new UsersTable(new MySQL());
 $id = $_GET['id'];
 $table->DeletePrd($id);
 
-HTTP::redirect('/admin/index.php');
+HTTP::redirect('/admin/index.php', 'prdDelete=true');

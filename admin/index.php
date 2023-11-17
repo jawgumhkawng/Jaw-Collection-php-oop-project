@@ -17,11 +17,17 @@ $auth = Auth::check();
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Send us a Message</h2>
+              <h2>Products List</h2>
 
               <?php if ( isset($_GET['prdadd']) ) : ?>
                     <div class="alert alert-info">
                     Product Add Success!
+                    </div>
+                <?php endif ?>
+
+              <?php if ( isset($_GET['prdDelete']) ) : ?>
+                    <div class="alert alert-danger">
+                    Product Deleted!
                     </div>
                 <?php endif ?>
               
@@ -57,8 +63,8 @@ $auth = Auth::check();
                   <td><?= $prd->price ?></td>
                   <td><?= $prd->created_at ?></td>
                   <td class="btn-group">
-                  <a href="products_edit.php?id=<?= $prd->id ?>" type="button" class="btn btn-warning"> <i class="fa fa-cog" aria-hidden="true"></i></a>
-                  <a href="products_delete.php?id=<?= $prd->id ?>" type="button" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this blog!')">
+                  <a href="#" type="button" class="btn btn-warning"> <i class="fa fa-cog" aria-hidden="true"></i></a>
+                  <a href="../_actions/prd_delete.php?id=<?= $prd->id ?>" type="button" class="btn btn-danger" onclick="return confirm('Are you sure! You want to delete this product ( <?= $prd->name ?>  )!')">
                   <i class="fa fa-trash" aria-hidden="true"></i></a>
                    </td>
                   
