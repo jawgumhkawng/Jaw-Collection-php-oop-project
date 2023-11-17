@@ -74,10 +74,11 @@ $auth = Auth::check();
                   </td>   
                   <td><?= $user->created_at ?></td>
                   <td class="">
+             <?php if($user->id != $auth->id) : ?>
                   <div class="btn-group">
                     <div class="dropdown ">
                         <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-                        Offset
+                        Role
                         </button>
                         <div class="dropdown-menu " aria-labelledby="dropdownMenuOffset">
                         <a class="dropdown-item " href="../_actions/role.php?id=<?= $user->id ?>&role_id=1">Admin</a>
@@ -90,6 +91,9 @@ $auth = Auth::check();
                   <a href="../_actions/delete_user.php?id=<?= $user->id ?>" type="button" class="btn btn-danger" onclick="return confirm('Are you sure! You want to delete this product ( <?= $user->name ?>  )!')">
                   <i class="fa fa-trash" aria-hidden="true"></i></a>
                   </div>
+            <?php else : ?>
+                 #no action
+            <?php endif ?>
                    </td>
                   
                 </tr>

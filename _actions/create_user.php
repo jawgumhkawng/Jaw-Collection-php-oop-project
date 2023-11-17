@@ -27,7 +27,7 @@ use Helpers\HTTP;
         "phone" => $_POST['phone'] ?? 'Unknown',
         "address" => $_POST['address'] ?? 'Unknown',
         "photo" =>  $_FILES['photo']['name'] ?? 'Unknown',
-        "role_id" => 0,
+        "role_id" => 2,
     ];
 
         move_uploaded_file($tmp, "../profile/$name");
