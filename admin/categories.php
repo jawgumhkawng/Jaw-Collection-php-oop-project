@@ -3,12 +3,12 @@ include("../vendor/autoload.php");
 
 use Libs\Database\MySQL;
 use Libs\Database\UsersTable;
-use Helpers\Auth;
+use Helpers\AuthAd;
 
 $table = new UsersTable(new MySQL());
 $all = $table->getCat();
 
-$auth = Auth::check();
+$auth = AuthAd::check();
 ?>
 <?php include ('header.php'); ?>
  

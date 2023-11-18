@@ -79,7 +79,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <a class="nav-link" href="contact.php">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a class="text-white mb-3 mr-3" href="contact.php " style="font-size: 30px;"><i class="fa fa-sign-out logout" aria-hidden="true"></i></a>
+                <a class="text-white mb-3 mr-3" href="./_actions/logout.php " style="font-size: 30px;"><i class="fa fa-sign-out logout" aria-hidden="true"></i></a>
                 <a class="text-white mb-3 " href="contact.php " style="font-size: 30px;"><i class="fa fa-cart-arrow-down logout" aria-hidden="true"></i></i></a>
 
               </li>
@@ -149,8 +149,10 @@ https://templatemo.com/tm-546-sixteen-clothing
                     </ul> -->
                     
                   
-                      <a href="index.php" class="btn btn-outline-warning shadow ">Back</a>
+                    <form action="./_actions/order.php" method="post">
+                    <a href="index.php" class="btn btn-outline-warning shadow ">Back</a>
                     <a href="./_actions/order.php?id=<?= $prd->id ?>&total_price=<?= $prd->price ?>" type="submit" class="btn btn-outline-primary float-right shadow">CheckOut</a>
+                    </form>
 
                     
                     </div>
